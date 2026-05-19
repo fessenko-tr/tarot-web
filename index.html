@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Таро by Lilly — Профессиональный Таролог</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50:  '#F7F3FF',
+              100: '#EDE5FF',
+              200: '#D9C8FF',
+              300: '#BF9FFF',
+              400: '#A370F7',
+              500: '#8648E8',
+              600: '#6B30CC',
+              700: '#5522A8',
+              800: '#3E1880',
+              900: '#2A1060',
+            },
+            gold: '#F2C94C',
+          },
+          fontFamily: {
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans:  ['"Inter"', 'system-ui', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/hero.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/pricing.css" />
+  <link rel="stylesheet" href="css/conditions.css" />
+  <link rel="stylesheet" href="css/reviews.css" />
+</head>
+
+<body class="page-bg">
+
+<!-- ════════════════════════════════════════
+     NAVIGATION
+════════════════════════════════════════ -->
+<nav class="nav-glass fixed top-0 left-0 right-0 z-50" id="nav">
+  <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between">
+    <a href="#" class="flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 rounded">
+      <img src="brand_assets/Logo.svg" alt="Таро by Lilly" class="h-26 w-auto" />
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="#about"      class="nav-link">Кто такой таролог</a>
+      <a href="#story"      class="nav-link">Моя история</a>
+      <a href="#spreads"    class="nav-link">Расклады</a>
+      <a href="#conditions" class="nav-link">Условия</a>
+      <a href="#reviews"    class="nav-link">Отзывы</a>
+    </div>
+    <a href="#spreads" class="btn hidden sm:inline-flex">Записаться</a>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════════════
+     HERO — Кто такой Таролог
+════════════════════════════════════════ -->
+<section id="about" class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-20">
+  <!-- Orbs -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Sparkles -->
+  <div class="sparkles-wrap" id="sparkles"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 w-full max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-center gap-12 md:gap-16">
+
+    <!-- Text column -->
+    <div class="flex-1 text-center md:text-left max-w-xl">
+      <div class="eyebrow mb-8 hero-in" id="hero-eyebrow">
+        <span style="color:#F2C94C;font-size:1rem;">✦</span>
+        Профессиональный Таролог
+        <span style="color:#F2C94C;font-size:1rem;">✦</span>
+      </div>
+
+      <h1 class="sh hero-in hero-in-2" style="font-size:clamp(3rem,8vw,5.5rem);">
+        Кто такой<br />
+        <em style="font-weight:400;">Таролог?</em>
+      </h1>
+
+      <div class="ornament my-8 hero-in hero-in-3">✦ ✦ ✦</div>
+
+      <p class="font-sans text-brand-700 hero-in hero-in-3 mb-4" style="font-size:1.0625rem;line-height:1.75;">
+        Таролог — это проводник между вашим внутренним миром и мудростью карт.
+        Я не предсказываю будущее — я помогаю вам увидеть его возможности.
+      </p>
+      <p class="font-sans text-brand-500 hero-in hero-in-4 mb-10" style="font-size:0.9375rem;line-height:1.75;">
+        Каждый расклад — это разговор с вашей интуицией,
+        путь к ясности в моменты неопределённости и выбора.
+      </p>
+
+      <a href="#story" class="btn hero-in hero-in-4">
+        Узнать больше
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+
+    <!-- Card column -->
+    <div class="hero-card-wrap flex-shrink-0 hero-in hero-in-3" aria-hidden="true">
+      <div class="hero-card-glow"></div>
+      <svg class="hero-carta" viewBox="0 0 138 165" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g filter="url(#hc-f0)">
+          <rect width="86.0977" height="128.218" rx="3" transform="matrix(0.868398 0.495867 -0.446282 0.894892 60.2071 0)" fill="#6D3AAD" fill-opacity="0.24"/>
+          <rect x="0.0211058" y="0.069538" width="85.9977" height="128.118" rx="2.95" transform="matrix(0.868398 0.495867 -0.446282 0.894892 60.2409 -0.00315672)" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f1)">
+          <path d="M74.7023 67.243L72.6228 80.3163L83.8066 86.7024L71.3376 88.396L69.2581 101.469L63.6313 89.4427L51.1623 91.1363L60.1538 82.0099L54.527 69.9833L65.7108 76.3694L74.7023 67.243Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M72.5746 80.3065L72.5687 80.3424L83.6526 86.6715L71.3297 88.3455L71.2947 88.3502L71.2896 88.3866L69.2343 101.304L63.6753 89.4213L63.6586 89.387L63.6236 89.3917L51.3032 91.0649L60.1879 82.0473L60.2133 82.0225L60.1975 81.9888L54.6368 70.103L65.7207 76.4321L65.7453 76.4069L74.6291 67.3888L72.5746 80.3065Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f2)">
+          <path d="M77.5757 21.711L76.3874 29.1814L82.7782 32.8306L75.653 33.7984L74.4648 41.2688L71.2495 34.3965L64.1243 35.3643L69.2623 30.1492L66.047 23.2769L72.4377 26.9261L77.5757 21.711Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M76.3393 29.171L76.3338 29.2082L82.6237 32.7999L75.6455 33.7476L75.6105 33.7523L75.6045 33.7882L74.4407 41.1032L71.2937 34.375L71.277 34.3407L71.242 34.3454L64.265 35.2927L69.2968 30.1864L69.3214 30.1611L69.3064 30.1278L66.1564 23.3968L72.4472 26.9889L72.4722 26.9628L77.5023 21.8577L76.3393 29.171Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f3)">
+          <path d="M111.654 42.0307L110.466 49.5011L116.857 53.1503L109.732 54.1181L108.543 61.5885L105.328 54.7162L98.2029 55.684L103.341 50.4689L100.126 43.5966L106.516 47.2458L111.654 42.0307Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M110.418 49.491L110.412 49.5278L116.703 53.1199L109.724 54.0671L109.69 54.0723L109.684 54.1082L108.519 61.4219L105.372 54.6945L105.356 54.6608L105.32 54.665L98.3442 55.6128L103.375 50.5059L103.401 50.4811L103.385 50.4474L100.235 43.7164L106.526 47.3085L106.551 47.2828L111.581 42.1764L110.418 49.491Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f4)">
+          <path d="M45.5318 85.9661L49.8277 90.6715L50.7343 97.0857L47.9051 102.759L42.4208 105.524L36.3763 104.325L32.0804 99.6194L31.1738 93.2051L34.003 87.532L39.4873 84.7669L45.5318 85.9661Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M49.7811 90.6931L50.6837 97.0761L47.8696 102.719L42.4109 105.47L36.3998 104.277L32.1258 99.5968L31.2245 93.2156L34.0395 87.571L39.4939 84.8201L45.508 86.0132L49.7811 90.6931Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f5)">
+          <path d="M59.4445 46.7376L61.5925 49.0903L62.0457 52.2974L60.6311 55.134L57.889 56.5165L54.8668 55.9169L52.7188 53.5642L52.2655 50.3571L53.6801 47.5205L56.4222 46.138L59.4445 46.7376Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M61.5466 49.1135L61.9951 52.2866L60.5948 55.0945L57.8818 56.4623L54.8905 55.8691L52.7638 53.5398L52.3162 50.3673L53.7165 47.5594L56.4287 46.1911L59.4208 46.7847L61.5466 49.1135Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f6)">
+          <path d="M73.8495 119.826L72.6612 127.296L79.052 130.946L71.9268 131.913L70.7385 139.384L67.5232 132.512L60.3981 133.479L65.5361 128.264L62.3207 121.392L68.7115 125.041L73.8495 119.826Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M72.6131 127.286L72.6076 127.323L78.8975 130.915L71.9193 131.863L71.8842 131.867L71.8783 131.903L70.7145 139.218L67.5675 132.49L67.5508 132.456L67.5157 132.46L60.5388 133.408L65.5706 128.301L65.5951 128.276L65.5801 128.243L62.4302 121.512L68.721 125.104L68.746 125.078L73.7761 119.973L72.6131 127.286Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f7)">
+          <path d="M103.245 83.5417L102.057 91.0121L108.448 94.6614L101.323 95.6291L100.135 103.1L96.9192 96.2272L89.7941 97.195L94.932 91.9799L91.7167 85.1076L98.1075 88.7568L103.245 83.5417Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M102.009 91.0017L102.004 91.039L108.294 94.6306L101.315 95.5783L101.28 95.583L101.274 95.6189L100.11 102.934L96.9635 96.2057L96.9468 96.1715L96.9117 96.1762L89.9348 97.1235L94.9666 92.0171L94.9911 91.9918L94.9761 91.9586L91.8262 85.2275L98.117 88.8197L98.142 88.7935L103.172 83.6884L102.009 91.0017Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <g filter="url(#hc-f8)">
+          <path d="M88.3016 45.5254L87.1133 52.9958L93.5041 56.645L86.3789 57.6128L85.1906 65.0832L81.9753 58.2109L74.8502 59.1787L79.9881 53.9636L76.7728 47.0913L83.1636 50.7405L88.3016 45.5254Z" fill="#E9FF61" fill-opacity="0.33"/>
+          <path d="M87.0652 52.9854L87.0597 53.0227L93.3496 56.6143L86.3714 57.562L86.3363 57.5667L86.3304 57.6026L85.1666 64.9176L82.0196 58.1894L82.0029 58.1552L81.9678 58.1599L74.9909 59.1072L80.0226 54.0008L80.0472 53.9755L80.0322 53.9423L76.8823 47.2112L83.1731 50.8034L83.1981 50.7772L88.2281 45.6721L87.0652 52.9854Z" stroke="#333333" stroke-opacity="0.84" stroke-width="0.1"/>
+        </g>
+        <defs>
+          <filter id="hc-f0" x="0" y="1.10245" width="137.96" height="163.23" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f1" x="47.1623" y="67.243" width="40.6443" height="42.2262" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f2" x="60.1243" y="21.711" width="26.6539" height="27.5578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f3" x="94.2029" y="42.0307" width="26.6539" height="27.5578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f4" x="27.1738" y="84.7669" width="27.5604" height="28.757" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f5" x="48.2655" y="46.138" width="17.7802" height="18.3785" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f6" x="56.3981" y="119.826" width="26.6539" height="27.5578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f7" x="85.7941" y="83.5417" width="26.6539" height="27.5578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+          <filter id="hc-f8" x="70.8502" y="45.5254" width="26.6539" height="27.5578" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/><feOffset dy="4"/><feGaussianBlur stdDeviation="2"/><feComposite in2="hardAlpha" operator="out"/><feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/><feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/><feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/></filter>
+        </defs>
+      </svg>
+    </div>
+
+  </div>
+</section>
+
+<div class="max-w-2xl mx-auto px-6 py-2"><div class="ornament">✦ ✦ ✦</div></div>
+
+
+<!-- ════════════════════════════════════════
+     MY STORY — Моя история
+════════════════════════════════════════ -->
+<section id="story" class="py-28 px-6">
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+
+      <!-- Image -->
+      <div class="reveal">
+        <div class="relative">
+          <div class="absolute -inset-5 rounded-2xl" style="background:radial-gradient(ellipse at center,rgba(134,72,232,0.13) 0%,transparent 70%);"></div>
+          <img
+            src="https://placehold.co/420x560/D9C8FF/5522A8?text=%20"
+            alt="Таролог Lilly"
+            class="relative w-full rounded-2xl"
+            style="box-shadow:0 20px 56px rgba(62,24,128,0.20),0 4px 14px rgba(62,24,128,0.10);"
+          />
+          <!-- floating mini-card -->
+          <div class="tcard absolute -bottom-6 -right-6 w-16 h-24" style="box-shadow:0 12px 36px rgba(60,21,112,0.50);" aria-hidden="true">
+            <div class="cstars">
+              <div class="crow"><span class="s ss">✦</span><span class="s sl">★</span><span class="s ss">✦</span></div>
+              <div class="crow"><span class="s sm">★</span><span class="s ss">✦</span><span class="s sm">★</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div>
+        <div class="reveal">
+          <div class="eyebrow mb-4"><span style="color:#F2C94C;">✦</span> Обо мне</div>
+          <h2 class="sh" style="font-size:clamp(2.5rem,5vw,3.5rem);margin-bottom:1.5rem;">Моя история</h2>
+        </div>
+        <p class="font-sans text-brand-700 mb-4 reveal d1" style="font-size:0.9375rem;line-height:1.75;">
+          Моё знакомство с Таро началось более десяти лет назад — не из любопытства,
+          а из острой необходимости найти ориентиры в жизненных переменах.
+        </p>
+        <p class="font-sans text-brand-700 mb-4 reveal d2" style="font-size:0.9375rem;line-height:1.75;">
+          Я прошла путь от скептика до практикующего специалиста, изучая классические колоды,
+          символизм и психологию архетипов. Каждая консультация — доверительный диалог,
+          а не мистическое шоу.
+        </p>
+        <p class="font-sans text-brand-700 mb-10 reveal d3" style="font-size:0.9375rem;line-height:1.75;">
+          Сегодня я помогаю людям обрести ясность в вопросах отношений, карьеры, личного роста
+          и жизненных решений — опираясь на глубину символизма карт и вашу собственную мудрость.
+        </p>
+        <div class="reveal d4 flex gap-10">
+          <div class="text-center">
+            <div class="sh" style="font-size:2.5rem;color:#6B30CC;">10+</div>
+            <div class="font-sans text-xs text-brand-500 mt-1" style="letter-spacing:0.06em;">лет практики</div>
+          </div>
+          <div class="text-center">
+            <div class="sh" style="font-size:2.5rem;color:#6B30CC;">500+</div>
+            <div class="font-sans text-xs text-brand-500 mt-1" style="letter-spacing:0.06em;">консультаций</div>
+          </div>
+          <div class="text-center">
+            <div class="sh" style="font-size:2.5rem;color:#6B30CC;">98%</div>
+            <div class="font-sans text-xs text-brand-500 mt-1" style="letter-spacing:0.06em;">довольных клиентов</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="max-w-2xl mx-auto px-6 py-2"><div class="ornament">✦ ✦ ✦</div></div>
+
+
+<!-- ════════════════════════════════════════
+     SPREADS & PRICING — Формат и прайс
+════════════════════════════════════════ -->
+<section id="spreads" class="py-28 px-6">
+  <div class="max-w-5xl mx-auto">
+
+    <!-- Heading -->
+    <div class="text-center mb-3 reveal">
+      <div class="eyebrow mb-4" style="justify-content:center;"><span style="color:#F2C94C;">✦</span> Консультации</div>
+      <h2 class="sh" style="font-size:clamp(2.2rem,5vw,3.25rem);">Формат консультации и прайс</h2>
+    </div>
+
+    <!-- Spreads sub-heading -->
+    <div class="text-center mt-14 mb-10 reveal">
+      <h3 class="font-serif font-light text-brand-700" style="font-size:1.6rem;letter-spacing:-0.02em;">Варианты раскладов</h3>
+      <p class="font-sans text-brand-400 mt-2" style="font-size:0.8125rem;">Выберите формат, который подходит именно вам</p>
+    </div>
+
+    <!-- 2×3 card grid -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-8 mb-20">
+
+      <!-- Card 1 -->
+      <div class="reveal d1 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На один вопрос">
+          <div class="sc-face">
+            <img src="brand_assets/card1.svg" width="100%" height="100%" alt="На один вопрос" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На один вопрос</div>
+          <div class="cdesc">Точный ответ на конкретный, важный для вас вопрос</div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="reveal d2 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На ситуацию">
+          <div class="sc-face">
+            <img src="brand_assets/card2.svg" width="100%" height="100%" alt="На ситуацию" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На ситуацию</div>
+          <div class="cdesc">Детальный анализ текущих обстоятельств в вашей жизни</div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="reveal d3 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На отношения">
+          <div class="sc-face">
+            <img src="brand_assets/card3.svg" width="100%" height="100%" alt="На отношения" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На отношения</div>
+          <div class="cdesc">Любовь, партнёрство и эмоциональная совместимость</div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="reveal d1 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На карьеру">
+          <div class="sc-face">
+            <img src="brand_assets/card4.svg" width="100%" height="100%" alt="На карьеру" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На карьеру</div>
+          <div class="cdesc">Профессиональный путь, возможности и решения</div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="reveal d2 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На месяц">
+          <div class="sc-face">
+            <img src="brand_assets/card5.svg" width="100%" height="100%" alt="На месяц" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На месяц</div>
+          <div class="cdesc">Ключевые темы и прогноз на предстоящий месяц</div>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="reveal d3 flex flex-col">
+        <div class="spread-card" tabindex="0" role="img" aria-label="На год">
+          <div class="sc-face">
+            <img src="brand_assets/card6.svg" width="100%" height="100%" alt="На год" style="display:block;"/>
+          </div>
+        </div>
+        <div class="clabel">
+          <div class="ctitle">На год</div>
+          <div class="cdesc">Годовой расклад: темы, вызовы и возможности</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Pricing — service list -->
+    <div class="reveal max-w-3xl mx-auto mt-20">
+      <h3 class="font-serif font-light text-brand-700 text-center mb-12" style="font-size:1.6rem;letter-spacing:-0.02em;">Прайс</h3>
+
+      <div class="font-serif font-light text-brand-700" style="font-size:1.2rem;letter-spacing:0.01em;">
+
+        <!-- Row 1 -->
+        <div style="display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;">
+          <div style="padding:1.75rem 2.5rem 1.75rem 0;">Стоимость разбора одной темы: отношения/работа/</div>
+          <div style="background:rgba(134,72,232,0.22);width:1px;align-self:stretch;"></div>
+          <div style="padding:1.75rem 0 1.75rem 2.5rem;">40 EURO / 2050 UAH</div>
+        </div>
+        <div style="height:1px;background:rgba(134,72,232,0.18);"></div>
+
+        <!-- Row 2 -->
+        <div style="display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;">
+          <div style="padding:1.75rem 2.5rem 1.75rem 0;">Астрорасклад</div>
+          <div style="background:rgba(134,72,232,0.22);width:1px;align-self:stretch;"></div>
+          <div style="padding:1.75rem 0 1.75rem 2.5rem;">100 EURO / 5100 UAH</div>
+        </div>
+        <div style="height:1px;background:rgba(134,72,232,0.18);"></div>
+
+        <!-- Row 3 -->
+        <div style="display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;">
+          <div style="padding:1.75rem 2.5rem 1.75rem 0;">Экспресс ответ на 1 вопрос</div>
+          <div style="background:rgba(134,72,232,0.22);width:1px;align-self:stretch;"></div>
+          <div style="padding:1.75rem 0 1.75rem 2.5rem;">15 EURO / 700 UAH</div>
+        </div>
+        <div style="height:1px;background:rgba(134,72,232,0.18);"></div>
+
+        <!-- Row 4 -->
+        <div style="display:grid;grid-template-columns:1fr 1px 1fr;align-items:center;">
+          <div style="padding:1.75rem 2.5rem 1.75rem 0;">Доплата за экспресс расклад вне записи</div>
+          <div style="background:rgba(134,72,232,0.22);width:1px;align-self:stretch;"></div>
+          <div style="padding:1.75rem 0 1.75rem 2.5rem;">15 EURO / 700 UAH</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="max-w-2xl mx-auto px-6 py-2"><div class="ornament">✦ ✦ ✦</div></div>
+
+
+<!-- ════════════════════════════════════════
+     CONDITIONS — Условия работы
+════════════════════════════════════════ -->
+<section id="conditions" class="py-28 px-6">
+  <div class="max-w-4xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <div class="eyebrow mb-4" style="justify-content:center;"><span style="color:#F2C94C;">✦</span> Как я работаю</div>
+      <h2 class="sh" style="font-size:clamp(2.2rem,5vw,3.25rem);">Условия работы</h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-x-16 gap-y-1">
+
+      <div class="cond reveal d1">
+        <div class="cond-icon">📱</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Онлайн-формат</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">Консультации в Telegram, WhatsApp или Zoom — где вам удобнее</div>
+        </div>
+      </div>
+
+      <div class="cond reveal d2">
+        <div class="cond-icon">🔒</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Конфиденциальность</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">Всё сказанное на консультации остаётся между нами. Никаких скриншотов без вашего согласия</div>
+        </div>
+      </div>
+
+      <div class="cond reveal d3">
+        <div class="cond-icon">💳</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Оплата</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">Предоплата 100% при записи. Принимаю переводы на карту, ЮMoney, СБП</div>
+        </div>
+      </div>
+
+      <div class="cond reveal d4">
+        <div class="cond-icon">⏰</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Длительность</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">30–90 минут в зависимости от выбранного формата консультации</div>
+        </div>
+      </div>
+
+      <div class="cond reveal d1">
+        <div class="cond-icon">📅</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Запись</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">Запись за 1–3 дня. Перенос возможен не позднее, чем за 24 часа до встречи</div>
+        </div>
+      </div>
+
+      <div class="cond reveal d2">
+        <div class="cond-icon">🌙</div>
+        <div>
+          <div class="font-serif font-medium text-brand-800" style="font-size:1.0625rem;">Подготовка</div>
+          <div class="font-sans text-brand-600 mt-1" style="font-size:0.8125rem;line-height:1.55;">Приходите с конкретным запросом — так расклад будет максимально точным и глубоким</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-14 reveal">
+      <a href="#" class="btn">Записаться на консультацию</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="max-w-2xl mx-auto px-6 py-2"><div class="ornament">✦ ✦ ✦</div></div>
+
+
+<!-- ════════════════════════════════════════
+     REVIEWS — Отзывы
+════════════════════════════════════════ -->
+<section id="reviews" class="py-28 px-6 overflow-hidden">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="text-center mb-14 reveal">
+      <div class="eyebrow mb-4" style="justify-content:center;"><span style="color:#F2C94C;">✦</span> Отклики клиентов</div>
+      <h2 class="sh" style="font-size:clamp(2.2rem,5vw,3.25rem);">Отзывы</h2>
+    </div>
+
+    <div class="relative reveal">
+      <div class="overflow-hidden" id="cv">
+        <div class="carousel-track" id="ct">
+
+          <div class="rcard">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif text-lg flex-shrink-0"
+                   style="background:linear-gradient(135deg,#BF9FFF,#7B3FCB);">А</div>
+              <div>
+                <div class="font-serif font-medium text-brand-800" style="font-size:0.9375rem;">Анастасия</div>
+                <div style="color:#F2C94C;font-size:0.75rem;letter-spacing:0.05em;">★★★★★</div>
+              </div>
+            </div>
+            <p class="font-sans text-brand-700" style="font-size:0.8125rem;line-height:1.7;">
+              «Консультация с Lilly стала для меня настоящим открытием. Я не верила в Таро,
+              но её спокойный, вдумчивый подход и точность трактовок просто поразили.
+              Многие вещи встали на свои места.»
+            </p>
+          </div>
+
+          <div class="rcard">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif text-lg flex-shrink-0"
+                   style="background:linear-gradient(135deg,#A370F7,#5522A8);">М</div>
+              <div>
+                <div class="font-serif font-medium text-brand-800" style="font-size:0.9375rem;">Мария</div>
+                <div style="color:#F2C94C;font-size:0.75rem;letter-spacing:0.05em;">★★★★★</div>
+              </div>
+            </div>
+            <p class="font-sans text-brand-700" style="font-size:0.8125rem;line-height:1.7;">
+              «Обращалась по вопросу отношений. Lilly мягко, но очень точно описала ситуацию
+              и дала понимание, как двигаться дальше. Чувствуется глубокая профессиональная
+              подготовка и искреннее желание помочь.»
+            </p>
+          </div>
+
+          <div class="rcard">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif text-lg flex-shrink-0"
+                   style="background:linear-gradient(135deg,#D9C8FF,#6B30CC);">Е</div>
+              <div>
+                <div class="font-serif font-medium text-brand-800" style="font-size:0.9375rem;">Елена</div>
+                <div style="color:#F2C94C;font-size:0.75rem;letter-spacing:0.05em;">★★★★★</div>
+              </div>
+            </div>
+            <p class="font-sans text-brand-700" style="font-size:0.8125rem;line-height:1.7;">
+              «Делала расклад на год — теперь это моя ежегодная традиция. Каждый раз
+              удивляюсь, насколько карты отражают реальность. Lilly объясняет всё ясно
+              и без лишней мистики.»
+            </p>
+          </div>
+
+          <div class="rcard">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif text-lg flex-shrink-0"
+                   style="background:linear-gradient(135deg,#BF9FFF,#3E1880);">О</div>
+              <div>
+                <div class="font-serif font-medium text-brand-800" style="font-size:0.9375rem;">Ольга</div>
+                <div style="color:#F2C94C;font-size:0.75rem;letter-spacing:0.05em;">★★★★★</div>
+              </div>
+            </div>
+            <p class="font-sans text-brand-700" style="font-size:0.8125rem;line-height:1.7;">
+              «Расклад на карьеру дал мне именно ту ясность, которой мне не хватало.
+              Я наконец приняла решение о смене работы — и не пожалела.
+              Очень благодарна Lilly за её мудрый взгляд.»
+            </p>
+          </div>
+
+          <div class="rcard">
+            <div class="flex items-center gap-3 mb-4">
+              <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-serif text-lg flex-shrink-0"
+                   style="background:linear-gradient(135deg,#A370F7,#2A1060);">Т</div>
+              <div>
+                <div class="font-serif font-medium text-brand-800" style="font-size:0.9375rem;">Татьяна</div>
+                <div style="color:#F2C94C;font-size:0.75rem;letter-spacing:0.05em;">★★★★★</div>
+              </div>
+            </div>
+            <p class="font-sans text-brand-700" style="font-size:0.8125rem;line-height:1.7;">
+              «Пришла в растерянности после разрыва отношений. Консультация помогла
+              посмотреть на ситуацию с другой стороны и найти в ней смысл.
+              Lilly — очень чуткий и внимательный специалист.»
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="flex items-center justify-center gap-4 mt-8">
+        <button class="cbtn" id="cprev" aria-label="Предыдущий">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="flex gap-2" id="cdots"></div>
+        <button class="cbtn" id="cnext" aria-label="Следующий">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M7 4l5 5-5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer class="py-14 px-6 text-center border-t border-brand-100">
+  <img src="brand_assets/Logo.svg" alt="Таро by Lilly" class="h-26 mx-auto mb-5" />
+  <p class="font-sans text-brand-300 mb-2" style="font-size:0.75rem;letter-spacing:0.04em;">
+    © 2026 Таро by Lilly
+  </p>
+  <p class="font-sans text-brand-200" style="font-size:0.7rem;line-height:1.6;max-width:360px;margin:0 auto;">
+    Все консультации носят информационный характер и не заменяют
+    профессиональную психологическую помощь.
+  </p>
+</footer>
+
+
+<!-- ════════════════════════════════════════
+     SCRIPTS
+════════════════════════════════════════ -->
+<script src="js/main.js"></script>
+
+</body>
+</html>

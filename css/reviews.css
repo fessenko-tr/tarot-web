@@ -1,0 +1,31 @@
+.rcard {
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(134,72,232,0.10);
+  border-radius: 16px;
+  padding: 24px 26px;
+  box-shadow: 0 4px 20px rgba(90,42,155,0.07), 0 1px 4px rgba(90,42,155,0.04);
+  min-width: 310px;
+  flex-shrink: 0;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+
+.cbtn {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(134,72,232,0.10);
+  border: 1px solid rgba(134,72,232,0.18);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  color: #6B30CC;
+  transition:
+    background 0.22s ease,
+    transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+}
+.cbtn:hover { background: rgba(134,72,232,0.20); transform: scale(1.10); }
+.cbtn:focus-visible { outline: 2px solid #8648E8; outline-offset: 3px; }
+.cbtn:active { transform: scale(0.94); }

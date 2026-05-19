@@ -1,0 +1,22 @@
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  color: #2A1060;
+  line-height: 1.7;
+  overflow-x: hidden;
+  background: #FDFBFF;
+}
+
+.page-bg {
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -5%,  rgba(134,72,232,0.20) 0%, transparent 68%),
+    radial-gradient(ellipse 55% 35% at 88% 18%,  rgba(180,130,255,0.12) 0%, transparent 60%),
+    radial-gradient(ellipse 45% 30% at 10% 30%,  rgba(147,100,240,0.08) 0%, transparent 60%),
+    linear-gradient(180deg, #EDE5FF 0%, #F3EEFF 18%, #FAF7FF 45%, #FDFBFF 70%, #FFFFFF 100%);
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #F5F0FF; }
+::-webkit-scrollbar-thumb { background: rgba(134,72,232,0.28); border-radius: 3px; }

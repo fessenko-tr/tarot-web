@@ -1,0 +1,32 @@
+.prow {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 13px 22px;
+  border-radius: 8px;
+  transition:
+    background 0.22s ease,
+    transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+  cursor: default;
+}
+.prow:hover { background: rgba(134,72,232,0.055); transform: translateX(5px); }
+.plabel {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.0625rem;
+  font-weight: 500;
+  color: #2A1060;
+  white-space: nowrap;
+}
+.pdots {
+  flex: 1;
+  border-bottom: 1px dashed rgba(134,72,232,0.22);
+  transform: translateY(-5px);
+  min-width: 20px;
+}
+.pprice {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #6B30CC;
+  white-space: nowrap;
+}
