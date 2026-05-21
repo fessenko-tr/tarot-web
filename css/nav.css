@@ -33,3 +33,206 @@
 .nav-link:hover::after { width: 100%; }
 .nav-link:focus-visible { outline: 2px solid #8648E8; outline-offset: 4px; border-radius: 2px; }
 .nav-link:active { color: #5522A8; }
+
+/* ── Star Hamburger Button ── */
+.star-burger {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 8px;
+  transition: background 0.2s ease;
+}
+.star-burger:hover  { background: rgba(134,72,232,0.08); }
+.star-burger:focus-visible { outline: 2px solid #8648E8; outline-offset: 3px; }
+
+.star-bar {
+  display: block;
+  height: 1.5px;
+  background: #5522A8;
+  border-radius: 2px;
+  transform-origin: center;
+  transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+              opacity   0.25s ease,
+              width     0.35s cubic-bezier(0.34,1.56,0.64,1),
+              background 0.25s ease;
+}
+.star-bar:nth-child(1) { width: 22px; }
+.star-bar:nth-child(2) { width: 16px; } /* short middle — asymmetry adds craft */
+.star-bar:nth-child(3) { width: 22px; }
+
+/* Star decorations on each bar */
+.star-bar::before,
+.star-bar::after {
+  content: '';
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #F2C94C;
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+.star-bar:nth-child(1)::before { left: 0; top: -1px; }
+.star-bar:nth-child(2)::before { left: 50%; top: -1px; transform-origin: center; }
+.star-bar:nth-child(3)::before { right: 0; top: -1px; }
+
+/* OPEN state — bars morph into ✕ with a golden star accent */
+.star-burger.open .star-bar:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+  width: 22px;
+  background: #8648E8;
+}
+.star-burger.open .star-bar:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.star-burger.open .star-bar:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+  width: 22px;
+  background: #8648E8;
+}
+/* Gold dot appears at cross centre */
+.star-burger.open::after {
+  content: '✦';
+  position: absolute;
+  font-size: 9px;
+  color: #F2C94C;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: star-pop 0.35s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+@keyframes star-pop {
+  from { opacity: 0; transform: translate(-50%,-50%) scale(0) rotate(-45deg); }
+  to   { opacity: 1; transform: translate(-50%,-50%) scale(1) rotate(0deg); }
+}
+
+/* ── Mobile Menu — Full-screen overlay ── */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 45; /* below nav z-50 so the bar + toggle paint on top */
+  background: rgba(240,234,255,0.97);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  opacity: 0;
+  transform: translateY(-10px) scale(0.99);
+  pointer-events: none;
+  transition: opacity 0.35s ease,
+              transform 0.4s cubic-bezier(0.34,1.56,0.64,1);
+  overflow-y: auto;
+}
+.mobile-menu.open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.mobile-menu-inner {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 40px 48px; /* top clears the nav bar */
+  overflow: hidden;
+}
+
+/* Decorative floating stars spread across the full screen */
+.mobile-menu-stars {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.mm-star {
+  position: absolute;
+  color: #F2C94C;
+  animation: mm-float 6s ease-in-out infinite;
+  opacity: 0.20;
+}
+.mm-star-1 { font-size: 40px; top: 12%;  right: 7%;  animation-delay: 0s;   animation-duration: 5.5s; }
+.mm-star-2 { font-size: 16px; top: 38%;  left: 5%;   animation-delay: 1.2s; animation-duration: 7s;   }
+.mm-star-3 { font-size: 24px; bottom: 18%; right: 10%; animation-delay: 2.4s; animation-duration: 6s;  }
+
+@keyframes mm-float {
+  0%,100% { transform: translateY(0)   rotate(0deg);   }
+  50%     { transform: translateY(-8px) rotate(20deg);  }
+}
+
+/* Nav links in full-screen overlay */
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 32px;
+}
+
+.mobile-nav-link {
+  position: relative;
+  display: block;
+  color: #5522A8;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  font-weight: 500;
+  font-style: italic;
+  letter-spacing: 0.01em;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(134,72,232,0.10);
+  text-decoration: none;
+  transition: color 0.25s cubic-bezier(0.34,1.56,0.64,1),
+              padding-left 0.25s cubic-bezier(0.34,1.56,0.64,1);
+}
+.mobile-nav-link::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 50%; transform: translateY(-50%);
+  font-style: normal;
+  font-size: 10px;
+  color: #F2C94C;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.mobile-nav-link:hover,
+.mobile-nav-link:focus-visible {
+  color: #8648E8;
+  padding-left: 18px;
+  outline: none;
+}
+.mobile-nav-link:hover::before,
+.mobile-nav-link:focus-visible::before { opacity: 1; }
+.mobile-nav-link:active { color: #5522A8; }
+
+/* CTA inside drawer */
+.mobile-cta {
+  display: block;
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Staggered slide-in for each link when menu opens */
+.mobile-menu.open .mobile-nav-link {
+  animation: link-slide-in 0.4s cubic-bezier(0.34,1.56,0.64,1) both;
+}
+.mobile-menu.open .mobile-nav-link:nth-child(1) { animation-delay: 0.05s; }
+.mobile-menu.open .mobile-nav-link:nth-child(2) { animation-delay: 0.10s; }
+.mobile-menu.open .mobile-nav-link:nth-child(3) { animation-delay: 0.15s; }
+.mobile-menu.open .mobile-nav-link:nth-child(4) { animation-delay: 0.20s; }
+.mobile-menu.open .mobile-nav-link:nth-child(5) { animation-delay: 0.25s; }
+.mobile-menu.open .mobile-cta                   { animation: link-slide-in 0.4s cubic-bezier(0.34,1.56,0.64,1) 0.3s both; }
+
+@keyframes link-slide-in {
+  from { opacity: 0; transform: translateX(-12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}

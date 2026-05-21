@@ -67,8 +67,34 @@
       <a href="#reviews"    class="nav-link">Отзывы</a>
     </div>
     <a href="#spreads" class="btn hidden sm:inline-flex">Записаться</a>
+
+    <!-- Star Hamburger — mobile only -->
+    <button class="star-burger md:hidden" id="nav-toggle" aria-label="Меню" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="star-bar"></span>
+      <span class="star-bar"></span>
+      <span class="star-bar"></span>
+    </button>
   </div>
 </nav>
+
+<!-- Mobile full-screen menu — sibling of nav so it gets its own stacking context -->
+<div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+  <div class="mobile-menu-inner">
+    <div class="mobile-menu-stars" aria-hidden="true">
+      <span class="mm-star mm-star-1">✦</span>
+      <span class="mm-star mm-star-2">✧</span>
+      <span class="mm-star mm-star-3">✦</span>
+    </div>
+    <nav class="mobile-nav" aria-label="Мобильная навигация">
+      <a href="#about"      class="mobile-nav-link" data-close>Кто такой таролог</a>
+      <a href="#story"      class="mobile-nav-link" data-close>Моя история</a>
+      <a href="#spreads"    class="mobile-nav-link" data-close>Расклады</a>
+      <a href="#conditions" class="mobile-nav-link" data-close>Условия</a>
+      <a href="#reviews"    class="mobile-nav-link" data-close>Отзывы</a>
+    </nav>
+    <a href="#spreads" class="btn mobile-cta" data-close>✦ Записаться</a>
+  </div>
+</div>
 
 
 <!-- ════════════════════════════════════════

@@ -4,6 +4,44 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+// Star hamburger menu
+const navToggle   = document.getElementById('nav-toggle');
+const mobileMenu  = document.getElementById('mobile-menu');
+
+function openMenu() {
+  navToggle.classList.add('open');
+  mobileMenu.classList.add('open');
+  navToggle.setAttribute('aria-expanded', 'true');
+  mobileMenu.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+function closeMenu() {
+  navToggle.classList.remove('open');
+  mobileMenu.classList.remove('open');
+  navToggle.setAttribute('aria-expanded', 'false');
+  mobileMenu.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+navToggle.addEventListener('click', () => {
+  mobileMenu.classList.contains('open') ? closeMenu() : openMenu();
+});
+
+// Close on nav link click
+mobileMenu.querySelectorAll('[data-close]').forEach(el => {
+  el.addEventListener('click', closeMenu);
+});
+
+// Close on Escape key
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape' && mobileMenu.classList.contains('open')) closeMenu();
+});
+
+// Close when viewport expands to md (768px)
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 768 && mobileMenu.classList.contains('open')) closeMenu();
+}, { passive: true });
+
 // Sparkles
 const sparkWrap = document.getElementById('sparkles');
 function mkSparkle() {
