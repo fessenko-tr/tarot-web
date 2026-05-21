@@ -1,7 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "PowerShell($base = \"C:\\\\Users\\\\WRATH\\\\AppData\\\\Local\\\\Temp\\\\puppeteer-test\\\\node_modules\\\\puppeteer\"; ls \"$base\\\\.local-chromium\" -ErrorAction SilentlyContinue | Select-Object Name; ls \"$base\\\\.local-chrome\" -ErrorAction SilentlyContinue | Select-Object Name; ls \"$base\" | Select-Object Name | Select-Object -First 20)"
-    ]
-  }
-}
