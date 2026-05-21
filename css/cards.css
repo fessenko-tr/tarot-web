@@ -59,7 +59,8 @@
 /* Spread cards */
 .spread-card {
   position: relative;
-  width: 100%;
+  width: 75%;
+  margin: 0 auto;
   aspect-ratio: 138 / 211;
   transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
   cursor: pointer;
@@ -93,4 +94,18 @@
   font-size: 0.75rem;
   color: #7040C0;
   line-height: 1.45;
+}
+
+/* Story section floating mini-card */
+.minicard {
+  cursor: default;
+  transform: rotate(8deg);
+  filter: drop-shadow(0 8px 18px rgba(98,42,196,0.28));
+  transition:
+    transform 0.35s cubic-bezier(0.34,1.56,0.64,1),
+    filter 0.35s ease;
+}
+.minicard:hover {
+  transform: rotate(12deg) translateY(-6px) scale(1.07);
+  filter: drop-shadow(0 12px 28px rgba(98,42,196,0.52)) drop-shadow(0 0 14px rgba(134,72,232,0.30));
 }

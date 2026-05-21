@@ -1,0 +1,28 @@
+# Dev/build tooling (not needed to host the site)
+serve.mjs
+screenshot.mjs
+screenshot-pricing.mjs
+screenshot-pricing2.mjs
+hero-screenshot.mjs
+crop-cards.mjs
+ss3.mjs
+ss4.mjs
+ss5.mjs
+ss6.mjs
+
+# Claude Code config (local to your machine)
+.claude/
+
+# Captured screenshots (dev artifacts)
+temporary screenshots/
+
+# Logs
+*.log
+server.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Node (in case node_modules ever appears)
+node_modules/
