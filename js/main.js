@@ -4,6 +4,22 @@ window.addEventListener('scroll', () => {
   nav.classList.toggle('scrolled', window.scrollY > 40);
 }, { passive: true });
 
+// Active nav link tracking
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+function setActiveLink(id) {
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+  mobileNavLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + id));
+}
+
+const sectionObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) setActiveLink(e.target.id); });
+}, { rootMargin: '-40% 0px -55% 0px' });
+
+sections.forEach(s => sectionObserver.observe(s));
+
 // Star hamburger menu
 const navToggle   = document.getElementById('nav-toggle');
 const mobileMenu  = document.getElementById('mobile-menu');
