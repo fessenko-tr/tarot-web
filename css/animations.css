@@ -1,3 +1,35 @@
+/* ── Logo card hover animation ── */
+.logo-wrap { display:inline-block; position:relative; }
+.logo-wrap svg { overflow:visible; height:100%; width:auto; display:block; }
+.logo-cl,.logo-cc,.logo-cr { transform-box:fill-box; transform-origin:center center; }
+.logo-anim-active .logo-cl { animation:logo-card-lift 2.4s ease-in-out 1; }
+.logo-anim-active .logo-cc { animation:logo-card-lift 2.4s ease-in-out 1; animation-delay:0.8s; }
+.logo-anim-active .logo-cr { animation:logo-card-lift 2.4s ease-in-out 1; animation-delay:1.6s; }
+/* Spark particles */
+.logo-spark {
+  position: absolute;
+  pointer-events: none;
+  background: currentColor;
+  clip-path: polygon(50% 0%,56% 44%,100% 50%,56% 56%,50% 100%,44% 56%,0% 50%,44% 44%);
+  filter: drop-shadow(0 0 4px currentColor);
+  animation-name: logo-spark-fly;
+  animation-duration: var(--s-dur, 1s);
+  animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  animation-iteration-count: 1;
+  animation-fill-mode: both;
+}
+@keyframes logo-spark-fly {
+  0%   { opacity: 0; transform: translate(0, 0) scale(0) rotate(0deg); }
+  20%  { opacity: 1; transform: translate(calc(var(--s-dx) * 0.2), calc(var(--s-dy) * 0.2)) scale(1) rotate(calc(var(--s-rot) * 0.2)); }
+  100% { opacity: 0; transform: translate(var(--s-dx), var(--s-dy)) scale(0.1) rotate(var(--s-rot)); }
+}
+
+@keyframes logo-card-lift {
+  0%       { transform:translateY(0) scale(1);                              animation-timing-function:cubic-bezier(0.45,0,0.55,1); }
+  17%      { transform:translateY(var(--logo-lift,-12px)) scale(1.10);      animation-timing-function:cubic-bezier(0.45,0,0.55,1); }
+  33%,100% { transform:translateY(0) scale(1); }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(30px);

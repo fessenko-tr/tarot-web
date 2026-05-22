@@ -1,3 +1,80 @@
+// Inline logo SVGs so CSS hover animation works across the DOM
+(async function () {
+  try {
+    const res = await fetch('brand_assets/Logo.svg');
+    const src = await res.text();
+    let n = 0;
+    function spawnLogoSparks(wrap) {
+      const w = wrap.offsetWidth;
+      const h = wrap.offsetHeight;
+      const purples = ['#D4B5FF', '#E0CAFB', '#C4A0F8'];
+      const golds   = ['#F2C94C', '#FFDF2A'];
+      // [card x-center fraction, spawn window start ms, spawn window end ms]
+      const bands = [[0.33, 0, 650], [0.50, 800, 1450], [0.67, 1600, 2250]];
+      const perCard = 8;
+      bands.forEach(([cx, t0, t1]) => {
+        for (let i = 0; i < perCard; i++) {
+          const at = t0 + (i / perCard) * (t1 - t0) + Math.random() * ((t1 - t0) / perCard * 0.5);
+          setTimeout(() => {
+            const el  = document.createElement('span');
+            el.className = 'logo-spark';
+            const x   = w * (cx + (Math.random() - 0.5) * 0.30);
+            const y   = h * (0.36 + Math.random() * 0.56);
+            // bimodal sizes: fine dust (60 %) vs hero star (40 %)
+            const isHero = Math.random() > 0.60;
+            const sz  = isHero
+              ? h * (0.12 + Math.random() * 0.10)   // hero:  12–22 % of h
+              : h * (0.04 + Math.random() * 0.07);  // dust:   4–11 % of h
+            const pal = Math.random() > 0.35 ? purples : golds;
+            const col = pal[Math.floor(Math.random() * pal.length)];
+            const dur = (isHero ? 1100 : 850) + Math.random() * 700;
+            const dx  = (Math.random() - 0.5) * w * 0.36;
+            const dy  = -(h * (0.38 + Math.random() * 0.55));
+            const rot = (Math.random() > 0.5 ? 1 : -1) * (50 + Math.random() * 100);
+            el.style.cssText = `left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;color:${col};--s-dur:${dur}ms;--s-dx:${dx}px;--s-dy:${dy}px;--s-rot:${rot}deg;`;
+            wrap.appendChild(el);
+            setTimeout(() => el.remove(), dur + 100);
+          }, at);
+        }
+      });
+    }
+
+    document.querySelectorAll('img[data-logo]').forEach(img => {
+      const uid = `lf${n++}`;
+      const svg = src
+        .replace(/\bid="(filter[^"]+)"/g, `id="${uid}$1"`)
+        .replace(/url\(#(filter[^)]+)\)/g, `url(#${uid}$1)`);
+      const wrap = document.createElement('span');
+      wrap.className = 'logo-wrap ' + img.className;
+      wrap.innerHTML = svg;
+      wrap.addEventListener('mouseenter', () => {
+        if (wrap.dataset.logoPlaying) return;
+        wrap.dataset.logoPlaying = '1';
+        const lift = Math.round(wrap.offsetHeight * 0.16);
+        wrap.style.setProperty('--logo-lift', `-${lift}px`);
+
+        // logo-cr is drawn before the final arc letters in the SVG, so those
+        // letters paint on top of it when it lifts. Move it to the end of the
+        // SVG's draw order so it always renders above the text during animation.
+        const svgEl   = wrap.querySelector('svg');
+        const cr      = svgEl.querySelector('.logo-cr');
+        const defs    = svgEl.querySelector('defs');
+        const crAfter = cr.nextSibling; // remember original position
+        svgEl.insertBefore(cr, defs);
+
+        wrap.classList.add('logo-anim-active');
+        spawnLogoSparks(wrap);
+        setTimeout(() => {
+          wrap.classList.remove('logo-anim-active');
+          svgEl.insertBefore(cr, crAfter); // restore original paint order
+          delete wrap.dataset.logoPlaying;
+        }, 2500);
+      });
+      img.replaceWith(wrap);
+    });
+  } catch (_) {}
+})();
+
 // Nav scroll class
 const nav = document.getElementById('nav');
 window.addEventListener('scroll', () => {
