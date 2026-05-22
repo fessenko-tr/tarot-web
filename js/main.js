@@ -157,6 +157,49 @@ function mkSparkle() {
 for (let i = 0; i < 22; i++) mkSparkle();
 setInterval(mkSparkle, 1100);
 
+// Hero card sparkle animation
+(function () {
+  const cardWrap = document.querySelector('.hero-card-wrap');
+  if (!cardWrap) return;
+
+  function spawnCardSparks(wrap) {
+    const w = wrap.offsetWidth;
+    const h = wrap.offsetHeight;
+    const purples = ['#D4B5FF', '#E0CAFB', '#C4A0F8'];
+    const golds   = ['#F2C94C', '#FFDF2A'];
+    const total   = 28;
+    for (let i = 0; i < total; i++) {
+      const at = Math.random() * 1800;
+      setTimeout(() => {
+        const el = document.createElement('span');
+        el.className = 'logo-spark';
+        const x = w * (0.08 + Math.random() * 0.84);
+        const y = h * (0.10 + Math.random() * 0.75);
+        const isHero = Math.random() > 0.60;
+        const sz = isHero
+          ? h * (0.07 + Math.random() * 0.07)
+          : h * (0.022 + Math.random() * 0.04);
+        const pal = Math.random() > 0.35 ? purples : golds;
+        const col = pal[Math.floor(Math.random() * pal.length)];
+        const dur = (isHero ? 1100 : 850) + Math.random() * 700;
+        const dx  = (Math.random() - 0.5) * w * 0.55;
+        const dy  = -(h * (0.22 + Math.random() * 0.50));
+        const rot = (Math.random() > 0.5 ? 1 : -1) * (50 + Math.random() * 100);
+        el.style.cssText = `left:${x}px;top:${y}px;width:${sz}px;height:${sz}px;color:${col};--s-dur:${dur}ms;--s-dx:${dx}px;--s-dy:${dy}px;--s-rot:${rot}deg;`;
+        wrap.appendChild(el);
+        setTimeout(() => el.remove(), dur + 100);
+      }, at);
+    }
+  }
+
+  cardWrap.addEventListener('mouseenter', () => {
+    if (cardWrap.dataset.cardPlaying) return;
+    cardWrap.dataset.cardPlaying = '1';
+    spawnCardSparks(cardWrap);
+    setTimeout(() => delete cardWrap.dataset.cardPlaying, 2000);
+  });
+})();
+
 // Scroll reveal
 const io = new IntersectionObserver(entries => {
   entries.forEach(e => {

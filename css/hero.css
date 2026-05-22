@@ -66,6 +66,10 @@
   justify-content: center;
   width: 260px;
   flex-shrink: 0;
+  transition: filter 0.5s cubic-bezier(0.22,1,0.36,1);
+}
+.hero-card-wrap:hover {
+  filter: drop-shadow(0 0 18px rgba(134,72,232,0.40)) drop-shadow(0 0 42px rgba(134,72,232,0.18));
 }
 
 .hero-card-glow {
