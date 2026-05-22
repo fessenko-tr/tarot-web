@@ -1,31 +1,115 @@
-.rcard {
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(134,72,232,0.10);
-  border-radius: 16px;
-  padding: 24px 26px;
-  box-shadow: 0 4px 20px rgba(90,42,155,0.07), 0 1px 4px rgba(90,42,155,0.04);
-  min-width: 310px;
-  flex-shrink: 0;
+/* ────────────────────────────────────────────────
+   REVIEWS — Instagram screenshots inside the
+   back/flipped tarot card design (gold border, no
+   symbols). The whole screenshot stays visible.
+──────────────────────────────────────────────── */
+
+/* Let the gold glow bleed beyond the carousel viewport without being
+   square-clipped by overflow:hidden — clip only what slides far away. */
+#cv {
+  overflow: clip !important;
+  overflow-clip-margin: 60px;
 }
 
 .carousel-track {
   display: flex;
-  gap: 20px;
-  transition: transform 0.5s cubic-bezier(0.22,1,0.36,1);
+  gap: 36px;
+  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+  padding: 36px 8px 40px;
 }
 
+/* Each carousel slot */
+.rcard {
+  flex-shrink: 0;
+  background: none;
+  border: none;
+  padding: 0;
+  box-shadow: none;
+  border-radius: 0;
+  min-width: 0;
+}
+
+/* Tarot-card frame — same visual language as the
+   flipped (back) side of the spread cards */
+.rcard-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 138 / 211;
+  background: radial-gradient(ellipse at 50% 38%, #ECD9FB 0%, #E0CAFB 100%);
+  border: 1.5px solid rgba(204, 179, 237, 0.6);
+  border-radius: 16.4% / 10.6%;
+  transition:
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+}
+
+.rcard-frame:hover {
+  transform: translateY(-8px) scale(1.028);
+  box-shadow:
+    0 0 14px rgba(242, 201, 76, 0.55),
+    0 0 38px rgba(242, 201, 76, 0.38),
+    0 0 80px rgba(242, 201, 76, 0.22),
+    0 0 130px rgba(242, 201, 76, 0.10),
+    0 18px 40px rgba(60, 21, 112, 0.22);
+}
+
+/* Inner gold border — matches .sc-back::before */
+.rcard-frame::before {
+  content: '';
+  position: absolute;
+  top: 5.05%;
+  bottom: 5.05%;
+  left: 7.8%;
+  right: 7.8%;
+  border: 1px solid rgba(230, 184, 74, 0.55);
+  border-radius: 12.9% / 7.9%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* The screenshot — full picture always visible, centered inside the
+   gold border. Sized via max-width/max-height so any aspect ratio
+   (portrait / landscape / very tall) is shown in full. */
+.rcard-frame img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: auto;
+  height: auto;
+  max-width: 80%;
+  max-height: 84%;
+  display: block;
+  z-index: 1;
+  border-radius: 4px;
+}
+
+/* Carousel navigation buttons */
 .cbtn {
-  width: 44px; height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 50%;
-  background: rgba(134,72,232,0.10);
-  border: 1px solid rgba(134,72,232,0.18);
-  display: flex; align-items: center; justify-content: center;
+  background: rgba(134, 72, 232, 0.10);
+  border: 1px solid rgba(134, 72, 232, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   cursor: pointer;
   color: #6B30CC;
   transition:
     background 0.22s ease,
-    transform 0.28s cubic-bezier(0.34,1.56,0.64,1);
+    border-color 0.22s ease,
+    transform 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
-.cbtn:hover { background: rgba(134,72,232,0.20); transform: scale(1.10); }
-.cbtn:focus-visible { outline: 2px solid #8648E8; outline-offset: 3px; }
-.cbtn:active { transform: scale(0.94); }
+.cbtn:hover {
+  background: rgba(134, 72, 232, 0.20);
+  border-color: rgba(134, 72, 232, 0.40);
+  transform: scale(1.08);
+}
+.cbtn:focus-visible {
+  outline: 2px solid #8648E8;
+  outline-offset: 3px;
+}
+.cbtn:active {
+  transform: scale(0.94);
+}

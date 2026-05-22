@@ -214,14 +214,16 @@ const cards = ct.querySelectorAll('.rcard');
 const dotsEl = document.getElementById('cdots');
 let cur = 0;
 
-function visCount() { return window.innerWidth >= 900 ? 3 : window.innerWidth >= 600 ? 2 : 1; }
+function visCount() { return window.innerWidth >= 1024 ? 3 : window.innerWidth >= 720 ? 2 : 1; }
 function maxCur()   { return Math.max(0, cards.length - visCount()); }
 
 function setCardWidths() {
   const vc  = visCount();
-  const gap = 20;
+  const gap = 36;
   const containerW = document.getElementById('cv').offsetWidth;
-  const w = Math.floor((containerW - (vc - 1) * gap) / vc);
+  let w = Math.floor((containerW - (vc - 1) * gap) / vc);
+  const maxW = vc === 1 ? 340 : 300;
+  if (w > maxW) w = maxW;
   cards.forEach(c => { c.style.width = w + 'px'; c.style.minWidth = w + 'px'; });
 }
 
@@ -247,7 +249,7 @@ function renderDots() {
 
 function goTo(idx) {
   cur = Math.max(0, Math.min(idx, maxCur()));
-  const gap = 20;
+  const gap = 36;
   const w   = cards[0].offsetWidth + gap;
   ct.style.transform = `translateX(-${cur * w}px)`;
   renderDots();
@@ -255,6 +257,39 @@ function goTo(idx) {
 
 document.getElementById('cprev').addEventListener('click', () => goTo(cur - 1));
 document.getElementById('cnext').addEventListener('click', () => goTo(cur + 1));
+
+// Touch / drag swipe
+let touchStartX = 0;
+let touchDeltaX = 0;
+let isDragging  = false;
+
+ct.addEventListener('touchstart', e => {
+  touchStartX = e.touches[0].clientX;
+  touchDeltaX = 0;
+  isDragging  = true;
+  clearInterval(auto);
+}, { passive: true });
+
+ct.addEventListener('touchmove', e => {
+  if (!isDragging) return;
+  touchDeltaX = e.touches[0].clientX - touchStartX;
+  // Live drag feedback — shift the track while finger moves
+  const gap  = 36;
+  const base = cur * (cards[0].offsetWidth + gap);
+  ct.style.transition = 'none';
+  ct.style.transform  = `translateX(${-(base - touchDeltaX)}px)`;
+}, { passive: true });
+
+ct.addEventListener('touchend', () => {
+  if (!isDragging) return;
+  isDragging = false;
+  ct.style.transition = '';
+  const threshold = cards[0].offsetWidth * 0.25;
+  if (touchDeltaX < -threshold)      goTo(cur + 1);
+  else if (touchDeltaX > threshold)  goTo(cur - 1);
+  else                                goTo(cur);
+  auto = setInterval(() => goTo(cur >= maxCur() ? 0 : cur + 1), 5000);
+});
 
 let auto = setInterval(() => goTo(cur >= maxCur() ? 0 : cur + 1), 5000);
 ct.addEventListener('mouseenter', () => clearInterval(auto));
